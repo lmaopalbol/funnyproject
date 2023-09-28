@@ -5,7 +5,7 @@ var THREE = await import(
 var MOD1 = await import(
   "../../lilMod.js"
 );
-var currentMap = await import("/currentMap.js");
+var currentMap = await import("currentMap.js");
 
 // [GLOBAL CONSTANTS]
 
