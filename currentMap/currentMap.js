@@ -2,7 +2,7 @@ var THREE = await import(
   "http" + "s://unpkg.com/three@v0.156.1/build/three.module.js"
 );
 var MOD1 = await import(
-  ""
+  "../../lilMod.js"
 );
 
 var scene, camera;

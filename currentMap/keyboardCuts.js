@@ -3,12 +3,9 @@ var THREE = await import(
   "http" + "s://unpkg.com/three@v0.156.1/build/three.module.js"
 );
 var MOD1 = await import(
-  "http" + "s://gloomyunwelcomedebuggers.yoshimon44.repl.co/lilMod.js"
+  "../../lilMod.js"
 );
-
-var currentMap = await import(
-  "http" + "s://gloomyunwelcomedebuggers.yoshimon44.repl.co/currentMap/currentMap.js"
-);
+var currentMap = await import("/currentMap.js");
 
 // [GLOBAL CONSTANTS]
 
