@@ -53,6 +53,7 @@ export function main() {
     var door = currentMap.getCurrentParts().door;
     var renderer = currentMap.getCurrentParts().renderer;
 
+    /*
     var lala = new THREE.Vector3(0, 0, 0).setFromEuler(camera.rotation);
 
     var doodoo = new THREE.Vector3(
@@ -60,6 +61,8 @@ export function main() {
       0,
       Math.cos(lala.y - Math.PI)
     );
+    */
+   var doodoo = camera.position;
 
 
     if (e.key == "w" && !pressedDebounceZ) {
