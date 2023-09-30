@@ -171,6 +171,7 @@ export function main() {
 
           var loop_count = 0;
           var loop = setInterval(function(){
+            console.log(desiredResult);
             if (camera.rotation.y > desiredResult) {
               camera.rotation.y -= MOD1.rad(1);
             } else {
