@@ -1,4 +1,7 @@
 // [MODULES]
+console.log("I'm still alive.")
+
+
 var THREE = await import(
   "http" + "s://unpkg.com/three@v0.156.1/build/three.module.js"
 );
