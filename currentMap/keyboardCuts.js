@@ -183,9 +183,9 @@ export function main() {
   
             if (loop_count > 45) {
               loop_count = 0;
-              aPressed--;
+              dPressed--;
               desiredResult -= MOD1.rad(45);
-              if (aPressed == 0) {
+              if (dPressed == 0) {
                 clearInterval(loop);
                 camera.isMovingX = false;
               }
