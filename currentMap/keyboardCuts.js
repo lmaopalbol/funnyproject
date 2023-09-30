@@ -133,7 +133,7 @@ export function main() {
         {
           var loop_count = 0;
           var loop = setInterval(function(){
-            camera.rotation.y += (0.8/45);
+            camera.rotation.y += (0.9/45);
             loop_count++;
             renderer.render(scene, camera);
             updateLabels(door, camera);
@@ -162,7 +162,7 @@ export function main() {
         {
           var loop_count = 0;
           var loop = setInterval(function(){
-            camera.rotation.y -= (0.8/45);
+            camera.rotation.y -= (0.9/45);
             loop_count++;
             renderer.render(scene, camera);
             updateLabels(door, camera);
