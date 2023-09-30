@@ -174,6 +174,7 @@ export function main() {
 
           var loop_count = 0;
           var loop = setInterval(function(){
+            console.log(`ROT: ${camera.rotation.y} > DES: ${desiredResult}`);
             if (camera.rotation.y > desiredResult) {
               camera.rotationInDegrees.y -= 1;
             } else {
