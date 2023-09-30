@@ -16,6 +16,10 @@ try {
 
 // [GLOBAL CONSTANTS]
 
+var wPressed = 0;
+var aPressed = 0;
+var sPressed = 0;
+var dPressed = 0;
 
 
 export function main() {
@@ -36,6 +40,7 @@ export function main() {
       Math.cos(lala.y - Math.PI)
     );
 
+/*
     if (e.key == "w" && !camera.isMovingZ) {
       //camera.position.add(doodoo.normalize());
       camera.isMovingZ = true
@@ -97,6 +102,99 @@ export function main() {
             camera.isMovingX = false;
           }
         }, 1)
+      }
+    }
+*/
+
+    if (e.key == "w") {
+      wPressed++;
+      if (!camera.isMovingZ) {
+        camera.isMovingZ = true;
+        {
+          var loop_count = 0;
+          var loop = setInterval(function(){
+            camera.position.add(doodoo.normalize().multiplyScalar(0.1));
+            loop_count++;
+            renderer.render(scene, camera);
+  
+            if (loop_count > 50) {
+              loop_count = 0;
+              wPressed--;
+
+              if (wPressed == 0) {
+                clearInterval(loop);
+                camera.isMovingZ = false;
+              }
+            }
+          }, 1)
+        }
+      }
+    } else if (e.key == "s") {
+      sPressed++;
+      if (!camera.isMovingZ) {
+        camera.isMovingZ = true;
+        {
+          var loop_count = 0;
+          var loop = setInterval(function(){
+            camera.position.sub(doodoo.normalize().multiplyScalar(0.1));
+            loop_count++;
+            renderer.render(scene, camera);
+  
+            if (loop_count > 50) {
+              loop_count = 0;
+              sPressed--;
+
+              if (sPressed == 0) {
+                clearInterval(loop);
+                camera.isMovingZ = false;
+              }
+            }
+          }, 1)
+        }
+      }
+    } else if (e.key == "a") {
+      aPressed++;
+      if (!camera.isMovingX) {
+        camera.isMovingX = true;
+        {
+          var loop_count = 0;
+          var loop = setInterval(function(){
+            camera.rotation.y += MOD1.rad(1);
+            loop_count++;
+            renderer.render(scene, camera);
+  
+            if (loop_count > 45) {
+              loop_count = 0;
+              aPressed--;
+              if (aPressed == 0) {
+                clearInterval(loop);
+                camera.isMovingX = false;
+              }
+            }
+          }, 1)
+        }
+      }
+    } else if (e.key == "d") {
+      dPressed++;
+      if (!camera.isMovingX) {
+        camera.isMovingX = true;
+        {
+          var loop_count = 0;
+          var loop = setInterval(function(){
+            camera.rotation.y -= MOD1.rad(1);
+            loop_count++;
+            renderer.render(scene, camera);
+  
+            if (loop_count > 45) {
+              loop_count = 0;
+              aPressed--;
+              if (aPressed == 0) {
+                clearInterval(loop);
+                camera.isMovingX = false;
+              }
+            }
+          }, 1)
+        }
       }
     }
 
