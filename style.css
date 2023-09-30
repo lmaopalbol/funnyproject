@@ -4,7 +4,11 @@ html {
 }
 
 #codeSnippetCopy:hover {
-  background-color: #bbbbbb;
+  background-color: #eeeeee;
+}
+
+#codeSnippetCopy:active {
+  background-color: #dddddd;
 }
 
 #codeSnippetCopy {
