@@ -132,6 +132,7 @@ export function main() {
         camera.isMovingX = true;
         {
           var desiredResult = camera.rotationInDegrees.y + 45;
+          console.log(desiredResult);
 
           var loop_count = 0;
           var loop = setInterval(function(){
@@ -169,6 +170,7 @@ export function main() {
         camera.isMovingX = true;
         {
           var desiredResult = camera.rotationInDegrees.y - 45;
+          console.log(desiredResult);
 
           var loop_count = 0;
           var loop = setInterval(function(){
