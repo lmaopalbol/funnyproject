@@ -21,6 +21,29 @@ var aPressed = 0;
 var sPressed = 0;
 var dPressed = 0;
 
+// [HELPER FUNCTIONS]
+
+function updateLabels(){
+  document.querySelector(
+    "#cubPosLabel"
+  ).innerText = `Door Position: (${door.position
+    .toArray()
+    .map((x) => x.toFixed(2))
+    .join(", ")})`;
+  document.querySelector(
+    "#camPosLabel"
+  ).innerText = `Camera Position: (${camera.position
+    .toArray()
+    .map((x) => x.toFixed(2))
+    .join(", ")})`;
+  document.querySelector(
+    "#camRotLabel"
+  ).innerText = `Camera Rotation: (${new THREE.Vector3(0, 0, 0)
+    .setFromEuler(camera.rotation)
+    .toArray()
+    .map((x) => x.toFixed(2))
+    .join(", ")})`;
+}
 
 export function main() {
   window.addEventListener("keydown", function (e) {
@@ -40,71 +63,6 @@ export function main() {
       Math.cos(lala.y - Math.PI)
     );
 
-/*
-    if (e.key == "w" && !camera.isMovingZ) {
-      //camera.position.add(doodoo.normalize());
-      camera.isMovingZ = true
-      {
-        var loop_count = 0;
-        var loop = setInterval(function(){
-          camera.position.add(doodoo.normalize().multiplyScalar(0.1));
-          loop_count++;
-          renderer.render(scene, camera);
-
-          if (loop_count > 50) {
-            clearInterval(loop);
-            camera.isMovingZ = false;
-          }
-        }, 1)
-      }
-    } else if (e.key == "s" && !camera.isMovingZ) {
-      camera.isMovingZ = true
-      {
-        var loop_count = 0;
-        var loop = setInterval(function(){
-          camera.position.sub(doodoo.normalize().multiplyScalar(0.1));
-          loop_count++;
-          renderer.render(scene, camera);
-
-          if (loop_count > 50) {
-            clearInterval(loop);
-            camera.isMovingZ = false;
-          }
-        }, 1)
-      }
-      //floor.position.z += 0.1;
-    } else if (e.key == "a" && !camera.isMovingX) {
-      camera.isMovingX = true;
-      {
-        var loop_count = 0;
-        var loop = setInterval(function(){
-          camera.rotation.y += MOD1.rad(1);
-          loop_count++;
-          renderer.render(scene, camera);
-
-          if (loop_count > 45) {
-            clearInterval(loop);
-            camera.isMovingX = false;
-          }
-        }, 1)
-      }
-    } else if (e.key == "d" && !camera.isMovingX) {
-      camera.isMovingX = true;
-      {
-        var loop_count = 0;
-        var loop = setInterval(function(){
-          camera.rotation.y -= MOD1.rad(1);
-          loop_count++;
-          renderer.render(scene, camera);
-
-          if (loop_count > 45) {
-            clearInterval(loop);
-            camera.isMovingX = false;
-          }
-        }, 1)
-      }
-    }
-*/
 
     if (e.key == "w") {
       wPressed++;
@@ -116,6 +74,7 @@ export function main() {
             camera.position.add(doodoo.normalize().multiplyScalar(0.1));
             loop_count++;
             renderer.render(scene, camera);
+            updateLabels();
   
             if (loop_count > 50) {
               loop_count = 0;
@@ -139,6 +98,7 @@ export function main() {
             camera.position.sub(doodoo.normalize().multiplyScalar(0.1));
             loop_count++;
             renderer.render(scene, camera);
+            updateLabels();
   
             if (loop_count > 50) {
               loop_count = 0;
@@ -162,6 +122,7 @@ export function main() {
             camera.rotation.y += MOD1.rad(1);
             loop_count++;
             renderer.render(scene, camera);
+            updateLabels();
   
             if (loop_count > 45) {
               loop_count = 0;
@@ -184,6 +145,7 @@ export function main() {
             camera.rotation.y -= MOD1.rad(1);
             loop_count++;
             renderer.render(scene, camera);
+            updateLabels();
   
             if (loop_count > 45) {
               loop_count = 0;
@@ -211,6 +173,7 @@ export function main() {
             MOD1.rad((door.open ? 1 : -1))
           )
           renderer.render(scene, camera);
+          updateLabels();
 
           loop_count++;
           if (loop_count > 90) {
@@ -222,37 +185,22 @@ export function main() {
       }
     }
 
-    if (e.key == "f") { //this doesnt exist
+    if (e.key == "f") { //this doesnt exist, pls dont use :))))
       camera.position.y += 1;
       camera.lookAt(new THREE.Vector3(0, 0, 0));
+      updateLabels();
     }
 
     if (e.key == "q") {
       camera.position.y -= 1;
       camera.lookAt(new THREE.Vector3(0, 0, 0));
+      updateLabels();
     }
 
     console.log(`Prediction: ${camera.rotation.y % MOD1.rad(180)}`);
 
-    document.querySelector(
-      "#cubPosLabel"
-    ).innerText = `Door Position: (${door.position
-      .toArray()
-      .map((x) => x.toFixed(2))
-      .join(", ")})`;
-    document.querySelector(
-      "#camPosLabel"
-    ).innerText = `Camera Position: (${camera.position
-      .toArray()
-      .map((x) => x.toFixed(2))
-      .join(", ")})`;
-    document.querySelector(
-      "#camRotLabel"
-    ).innerText = `Camera Rotation: (${new THREE.Vector3(0, 0, 0)
-      .setFromEuler(camera.rotation)
-      .toArray()
-      .map((x) => x.toFixed(2))
-      .join(", ")})`;
+
     renderer.render(scene, camera);
+    updateLabels();
   });
 }

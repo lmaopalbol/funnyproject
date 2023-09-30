@@ -8,6 +8,7 @@ export function rotateAroundPoint(obj, point, axis, rotation) {
   obj.rotateOnAxis(axis, rotation);
 }
 
+
 export function isThisModuleWorking() {
   console.log("YEAH!");
 }
