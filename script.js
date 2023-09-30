@@ -15,13 +15,9 @@ var currentMap1 = await import(
   "/currentMap/currentMap.js"
 );
 
-try {
-  var keyboardCuts = await import(
-    "/currentMap/keyboardCuts.js"
-  );
-} catch (err) {
-  console.log(err);
-}
+var keyboardCuts = await import(
+  "/currentMap/keyboardCuts.js"
+);
 
 print = console.log; //you can use print instead of console.log now
 
