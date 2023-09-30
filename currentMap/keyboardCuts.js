@@ -16,10 +16,8 @@ try {
 
 // [GLOBAL CONSTANTS]
 
-var wPressed = 0;
-var aPressed = 0;
-var sPressed = 0;
-var dPressed = 0;
+var [wPressed, aPressed, sPressed, dPressed] = [0, 0, 0, 0];
+var [pressedDebounceZ, pressedDebounceX] = [false, false];
 
 // [HELPER FUNCTIONS]
 
@@ -64,8 +62,13 @@ export function main() {
     );
 
 
-    if (e.key == "w") {
+    if (e.key == "w" && !pressedDebounceZ) {
       wPressed++;
+      pressedDebounceZ = true;
+      setTimeout(function(){
+        pressedDebounceZ = false;
+      }, 500)
+
       if (!camera.isMovingZ) {
         camera.isMovingZ = true;
         {
@@ -88,8 +91,13 @@ export function main() {
           }, 1)
         }
       }
-    } else if (e.key == "s") {
+    } else if (e.key == "s" && !pressedDebounceZ) {
       sPressed++;
+      pressedDebounceZ = true;
+      setTimeout(function(){
+        pressedDebounceZ = false;
+      }, 500)
+
       if (!camera.isMovingZ) {
         camera.isMovingZ = true;
         {
@@ -112,8 +120,14 @@ export function main() {
           }, 1)
         }
       }
-    } else if (e.key == "a") {
+    } else if (e.key == "a" && !pressedDebounceX) {
       aPressed++;
+
+      pressedDebounceX = true;
+      setTimeout(function(){
+        pressedDebounceX = false;
+      }, 500)
+
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
@@ -135,8 +149,14 @@ export function main() {
           }, 1)
         }
       }
-    } else if (e.key == "d") {
+    } else if (e.key == "d" && !pressedDebounceX) {
       dPressed++;
+
+      pressedDebounceX = true;
+      setTimeout(function(){
+        pressedDebounceX = false;
+      }, 500)
+
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
