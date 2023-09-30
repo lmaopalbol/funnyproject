@@ -12,6 +12,7 @@ export var getCurrentScene = () => scene;
 export var getCurrentCamera = () => camera;
 export var getCurrentParts = () => objects;
 
+
 export function main(renderer) {
   objects["renderer"] = renderer;
   
@@ -80,5 +81,23 @@ export function main(renderer) {
   scene.add(door);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
 
+  if (resizeRendererToDisplaySize(renderer)) {
+    var canvas = renderer.domElement;
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+  }
+
   renderer.render(scene, camera);
+}
+
+
+function resizeRendererToDisplaySize(renderer) {
+  var canvas = renderer.domElement;
+  var width = canvas.clientWidth;
+  var height = canvas.clientHeight;
+  var needResize = canvas.width !== width || canvas.height !== height;
+  if (needResize) {
+    renderer.setSize(width, height, false);
+  }
+  return needResize;
 }
