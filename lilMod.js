@@ -14,5 +14,5 @@ export function isThisModuleWorking() {
 }
 
 export const rad = (deg) => {
-  return parseFloat(((deg * Math.PI) / 180).toFixed(5));
+  return parseFloat(((deg * Math.PI) / 180).toFixed(2));
 };
