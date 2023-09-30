@@ -67,7 +67,7 @@ export function main() {
       pressedDebounceZ = true;
       setTimeout(function(){
         pressedDebounceZ = false;
-      }, 500)
+      }, 250)
 
       if (!camera.isMovingZ) {
         camera.isMovingZ = true;
@@ -96,7 +96,7 @@ export function main() {
       pressedDebounceZ = true;
       setTimeout(function(){
         pressedDebounceZ = false;
-      }, 500)
+      }, 250)
 
       if (!camera.isMovingZ) {
         camera.isMovingZ = true;
@@ -126,7 +126,7 @@ export function main() {
       pressedDebounceX = true;
       setTimeout(function(){
         pressedDebounceX = false;
-      }, 500)
+      }, 225)
 
       if (!camera.isMovingX) {
         camera.isMovingX = true;
@@ -155,7 +155,7 @@ export function main() {
       pressedDebounceX = true;
       setTimeout(function(){
         pressedDebounceX = false;
-      }, 500)
+      }, 225)
 
       if (!camera.isMovingX) {
         camera.isMovingX = true;
