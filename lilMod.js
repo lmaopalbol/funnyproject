@@ -1,4 +1,8 @@
-//import * as THREE from 'three';
+/*
+  [greetings]
+    -[this module is a collection of certain things i may or may not want to use throughout this project]
+    -[idk bro]
+*/
 
 export function rotateAroundPoint(obj, point, axis, rotation) {
   obj.position.sub(point);
