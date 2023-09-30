@@ -18,10 +18,11 @@ export function main(renderer) {
   scene = new THREE.Scene();
 
   camera = new THREE.PerspectiveCamera(70, 1.6, 1, 600);
+  camera.rotationInDegrees = new THREE.Vector3(0, 0, 0); //doesnt really do anything, just helps keep track of numbers
   camera.isMovingZ = false;
   camera.isMovingX = false;
 
-  console.log(getCurrentCamera() === camera);
+  
 
   camera.position.z += 9;
 

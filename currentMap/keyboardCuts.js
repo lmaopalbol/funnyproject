@@ -131,15 +131,16 @@ export function main() {
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
-          var desiredResult = camera.rotation.y + MOD1.rad(45);
+          var desiredResult = camera.rotationInDegrees.y + 45;
 
           var loop_count = 0;
           var loop = setInterval(function(){
-            if (camera.rotation.y < desiredResult) {
-              camera.rotation.y += MOD1.rad(1);
+            if (camera.rotationInDegrees.y < desiredResult) {
+              camera.rotationInDegrees.y += 1;
             } else {
-              camera.rotation.y = desiredResult;
+              camera.rotationInDegrees.y = desiredResult;
             }
+            camera.rotation.y = MOD1.rad(camera.rotationInDegrees.y);
             loop_count++;
             renderer.render(scene, camera);
             updateLabels(door, camera);
@@ -147,7 +148,7 @@ export function main() {
             if (loop_count > 45) {
               loop_count = 0;
               aPressed--;
-              desiredResult += MOD1.rad(45);
+              desiredResult += 45;
               if (aPressed == 0) {
                 clearInterval(loop);
                 camera.isMovingX = false;
@@ -167,16 +168,16 @@ export function main() {
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
-          var desiredResult = camera.rotation.y - MOD1.rad(45);
+          var desiredResult = camera.rotationInDegrees.y - 45;
 
           var loop_count = 0;
           var loop = setInterval(function(){
-            console.log(desiredResult);
             if (camera.rotation.y > desiredResult) {
-              camera.rotation.y -= MOD1.rad(1);
+              camera.rotationInDegrees.y -= 1;
             } else {
-              camera.rotation.y = desiredResult;
+              camera.rotationInDegrees.y = desiredResult;
             }
+            camera.rotation.y = MOD1.rad(camera.rotationInDegrees.y);
             loop_count++;
             renderer.render(scene, camera);
             updateLabels(door, camera);
@@ -184,7 +185,7 @@ export function main() {
             if (loop_count > 45) {
               loop_count = 0;
               dPressed--;
-              desiredResult -= MOD1.rad(45);
+              desiredResult -= 45;
               if (dPressed == 0) {
                 clearInterval(loop);
                 camera.isMovingX = false;
