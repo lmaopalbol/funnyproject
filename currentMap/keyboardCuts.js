@@ -131,9 +131,15 @@ export function main() {
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
+          var desiredResult = camera.rotation.y + MOD1.rad(45);
+
           var loop_count = 0;
           var loop = setInterval(function(){
-            camera.rotation.y += MOD1.rad(1);
+            if (camera.rotation.y < desiredResult) {
+              camera.rotation.y += MOD1.rad(1);
+            } else {
+              camera.rotation.y = desiredResult;
+            }
             loop_count++;
             renderer.render(scene, camera);
             updateLabels(door, camera);
@@ -141,6 +147,7 @@ export function main() {
             if (loop_count > 45) {
               loop_count = 0;
               aPressed--;
+              desiredResult += MOD1.rad(45);
               if (aPressed == 0) {
                 clearInterval(loop);
                 camera.isMovingX = false;
@@ -160,17 +167,24 @@ export function main() {
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
+          var desiredResult = camera.rotation.y - MOD1.rad(45);
+
           var loop_count = 0;
           var loop = setInterval(function(){
-            camera.rotation.y -= MOD1.rad(1);
+            if (camera.rotation.y > desiredResult) {
+              camera.rotation.y -= MOD1.rad(1);
+            } else {
+              camera.rotation.y = desiredResult;
+            }
             loop_count++;
             renderer.render(scene, camera);
             updateLabels(door, camera);
   
             if (loop_count > 45) {
               loop_count = 0;
-              dPressed--;
-              if (dPressed == 0) {
+              aPressed--;
+              desiredResult -= MOD1.rad(45);
+              if (aPressed == 0) {
                 clearInterval(loop);
                 camera.isMovingX = false;
               }
