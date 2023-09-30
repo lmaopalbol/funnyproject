@@ -9,7 +9,7 @@ var MOD1 = await import(
   "../../lilMod.js"
 );
 try {
-  var currentMap = await import("/currentMap.js");
+  var currentMap = await import("/currentMap/currentMap.js");
 } catch (err) {
   console.log(`keyboardCuts error: ${err}`);
 }
