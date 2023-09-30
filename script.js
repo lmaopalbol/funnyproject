@@ -11,7 +11,7 @@ var THREE = await import(
 var MOD1 = await import(
   "/lilMod.js"
 );
-var currentMap = await import(
+var currentMap1 = await import(
   "/currentMap/currentMap.js"
 );
 
@@ -31,5 +31,5 @@ renderer.setClearColor(0x00cfff);
 
 // [[PROGRAM]]
 
-currentMap.main(renderer);
+currentMap1.main(renderer);
 keyboardCuts.main();
