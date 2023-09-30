@@ -2,3 +2,16 @@ html {
   height: 100%;
   width: 100%;
 }
+
+#codeSnippetCopy:hover {
+  background-color: #eeeeee;
+}
+
+#codeSnippetCopy:active {
+  background-color: #dddddd;
+}
+
+#codeSnippetCopy {
+  background-color: transparent;
+  border-radius: 10px;
+}

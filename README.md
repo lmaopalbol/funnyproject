@@ -1,1 +1,1 @@
-random doom1 clone attempt
+random doom clone attempt
