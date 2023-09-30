@@ -23,7 +23,7 @@ var dPressed = 0;
 
 // [HELPER FUNCTIONS]
 
-function updateLabels(){
+function updateLabels(door, camera){
   document.querySelector(
     "#cubPosLabel"
   ).innerText = `Door Position: (${door.position
@@ -74,7 +74,7 @@ export function main() {
             camera.position.add(doodoo.normalize().multiplyScalar(0.1));
             loop_count++;
             renderer.render(scene, camera);
-            updateLabels();
+            updateLabels(door, camera);
   
             if (loop_count > 50) {
               loop_count = 0;
@@ -98,7 +98,7 @@ export function main() {
             camera.position.sub(doodoo.normalize().multiplyScalar(0.1));
             loop_count++;
             renderer.render(scene, camera);
-            updateLabels();
+            updateLabels(door, camera);
   
             if (loop_count > 50) {
               loop_count = 0;
@@ -122,7 +122,7 @@ export function main() {
             camera.rotation.y += MOD1.rad(1);
             loop_count++;
             renderer.render(scene, camera);
-            updateLabels();
+            updateLabels(door, camera);
   
             if (loop_count > 45) {
               loop_count = 0;
@@ -145,7 +145,7 @@ export function main() {
             camera.rotation.y -= MOD1.rad(1);
             loop_count++;
             renderer.render(scene, camera);
-            updateLabels();
+            updateLabels(door, camera);
   
             if (loop_count > 45) {
               loop_count = 0;
@@ -173,7 +173,7 @@ export function main() {
             MOD1.rad((door.open ? 1 : -1))
           )
           renderer.render(scene, camera);
-          updateLabels();
+          updateLabels(door, camera);
 
           loop_count++;
           if (loop_count > 90) {
@@ -188,19 +188,19 @@ export function main() {
     if (e.key == "f") { //this doesnt exist, pls dont use :))))
       camera.position.y += 1;
       camera.lookAt(new THREE.Vector3(0, 0, 0));
-      updateLabels();
+      updateLabels(door, camera);
     }
 
     if (e.key == "q") {
       camera.position.y -= 1;
       camera.lookAt(new THREE.Vector3(0, 0, 0));
-      updateLabels();
+      updateLabels(door, camera);
     }
 
     console.log(`Prediction: ${camera.rotation.y % MOD1.rad(180)}`);
 
 
     renderer.render(scene, camera);
-    updateLabels();
+    updateLabels(door, camera);
   });
 }
