@@ -179,6 +179,7 @@ export function main() {
             } else {
               camera.rotationInDegrees.y = desiredResult;
             }
+
             camera.rotation.y = MOD1.rad(camera.rotationInDegrees.y);
             loop_count++;
             renderer.render(scene, camera);
@@ -187,6 +188,7 @@ export function main() {
             if (loop_count > 45) {
               loop_count = 0;
               dPressed--;
+              camera.rotationInDegrees.y = desiredResult;
               desiredResult -= 45;
               if (dPressed == 0) {
                 clearInterval(loop);
