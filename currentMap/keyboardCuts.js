@@ -8,7 +8,11 @@ var THREE = await import(
 var MOD1 = await import(
   "../../lilMod.js"
 );
-var currentMap = await import("/currentMap.js");
+try {
+  var currentMap = await import("/currentMap.js");
+} catch (err) {
+  console.log(`keyboardCuts error: ${err}`);
+}
 
 // [GLOBAL CONSTANTS]
 
