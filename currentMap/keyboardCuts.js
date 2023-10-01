@@ -57,9 +57,9 @@ export function main() {
 
     //after reading some code on the internet i have realized i couldve copied that code the entire time. also i accidentally made a backwards world 💀
     var doodoo = new THREE.Vector3(
-      0,
+      -Math.sin(lala.y),
       Math.sin(lala.x),
-      -Math.cos(lala.x)
+      -Math.cos(lala.x) + Math.sin(lala.y)
     );
 
 
