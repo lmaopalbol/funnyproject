@@ -59,7 +59,7 @@ export function main() {
     var doodoo = new THREE.Vector3(
       -Math.sin(lala.y),
       Math.sin(lala.x),
-      Math.sin(lala.y)
+      Math.cos(lala.y-Math.PI)
     );
     
     console.log(doodoo);
