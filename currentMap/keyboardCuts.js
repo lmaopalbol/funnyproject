@@ -53,16 +53,14 @@ export function main() {
     var door = currentMap.getCurrentParts().door;
     var renderer = currentMap.getCurrentParts().renderer;
 
-    /*
     var lala = new THREE.Vector3(0, 0, 0).setFromEuler(camera.rotation);
 
+    //after reading some code on the internet i have realized i couldve copied that code the entire time. also i accidentally made a backwards world 💀
     var doodoo = new THREE.Vector3(
-      -Math.sin(lala.y),
       0,
-      Math.cos(lala.y - Math.PI)
+      Math.sin(lala.x),
+      Math.sin(lala.x)
     );
-    */
-   var doodoo = camera.position;
 
 
     if (e.key == "w" && !pressedDebounceZ) {
