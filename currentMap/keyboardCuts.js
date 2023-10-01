@@ -228,13 +228,13 @@ export function main() {
 
     if (e.key == "f") { //this doesnt exist, pls dont use :))))
       camera.position.y += 1;
-      camera.lookAt(new THREE.Vector3(0, 0, 0));
+      camera.position.x -= 0.25;
       updateLabels(door, camera);
     }
 
     if (e.key == "q") {
       camera.position.y -= 1;
-      camera.lookAt(new THREE.Vector3(0, 0, 0));
+      camera.position.x -= 1/4;
       updateLabels(door, camera);
     }
 
