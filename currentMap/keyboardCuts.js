@@ -18,6 +18,12 @@ try {
 
 var [wPressed, aPressed, sPressed, dPressed] = [0, 0, 0, 0];
 var [pressedDebounceZ, pressedDebounceX] = [false, false];
+var listOfKeys = {
+  'w': false,
+  'a': false,
+  's': false,
+  'd': false
+};
 
 // [HELPER FUNCTIONS]
 
@@ -44,6 +50,10 @@ function updateLabels(door, camera){
 }
 
 export function main() {
+  window.addEventListener("keyup", function(e){
+    console.log(e.key);
+  })
+
   window.addEventListener("keydown", function (e) {
 
     var [scene, camera] = [
