@@ -85,7 +85,7 @@ export function main() {
               Math.cos(lala.y-Math.PI)
             );
 
-            camera.position.add(doodoo.normalize().multiplyScalar(0.01));
+            camera.position.add(doodoo.normalize().multiplyScalar(0.1));
             loop_count++;
             renderer.render(scene, camera);
             updateLabels(door, camera);
