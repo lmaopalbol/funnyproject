@@ -131,13 +131,13 @@ export function main() {
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
-          var desiredResult = camera.rotationInDegrees.y + 45;
+          var desiredResult = camera.rotationInDegrees.y + 0.01;
           console.log(desiredResult);
 
           var loop_count = 0;
           var loop = setInterval(function(){
             if (camera.rotationInDegrees.y < desiredResult) {
-              camera.rotationInDegrees.y += 1;
+              camera.rotationInDegrees.y += 0.01;
             } else {
               camera.rotationInDegrees.y = desiredResult;
             }
@@ -146,6 +146,7 @@ export function main() {
             renderer.render(scene, camera);
             updateLabels(door, camera);
   
+            /*
             if (loop_count > 45) {
               loop_count = 0;
               aPressed--;
@@ -155,6 +156,7 @@ export function main() {
                 camera.isMovingX = false;
               }
             }
+            */
           }, 1)
         }
       }
@@ -169,13 +171,13 @@ export function main() {
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
-          var desiredResult = camera.rotationInDegrees.y - 45;
+          var desiredResult = camera.rotationInDegrees.y - 0.01;
           console.log(desiredResult);
 
           var loop_count = 0;
           var loop = setInterval(function(){
             if (camera.rotationInDegrees.y > desiredResult) {
-              camera.rotationInDegrees.y -= 1;
+              camera.rotationInDegrees.y -= 0.01;
             } else {
               camera.rotationInDegrees.y = desiredResult;
             }
@@ -185,6 +187,7 @@ export function main() {
             renderer.render(scene, camera);
             updateLabels(door, camera);
   
+            /*
             if (loop_count > 45) {
               loop_count = 0;
               dPressed--;
@@ -196,9 +199,11 @@ export function main() {
               }
             }
           }, 1)
+            */
+          }, )
         }
-      }
     }
+  }
 
     //Door opening demo
     if (e.key == "e" && !door.opening) {
@@ -242,5 +247,6 @@ export function main() {
 
     renderer.render(scene, camera);
     updateLabels(door, camera);
-  });
+  }
+  );
 }
