@@ -51,7 +51,9 @@ function updateLabels(door, camera){
 
 export function main() {
   window.addEventListener("keyup", function(e){
-    console.log(e.key);
+    if (listOfKeys.has(e.key)) {
+      listOfKeys[e.key] = false;
+    };
   })
 
   window.addEventListener("keydown", function (e) {
@@ -76,7 +78,7 @@ export function main() {
 
 
     if (e.key == "w" && !pressedDebounceZ) {
-      wPressed++;
+      listOfKeys.w = true;
       pressedDebounceZ = true;
       setTimeout(function(){
         pressedDebounceZ = false;
@@ -94,9 +96,8 @@ export function main() {
   
             if (loop_count > 50) {
               loop_count = 0;
-              wPressed--;
 
-              if (wPressed == 0) {
+              if (listOfKeys.w == false) {
                 clearInterval(loop);
                 camera.isMovingZ = false;
               }
@@ -104,8 +105,10 @@ export function main() {
           }, 1)
         }
       }
-    } else if (e.key == "s" && !pressedDebounceZ) {
-      sPressed++;
+    }
+
+    if (e.key == "s" && !pressedDebounceZ) {
+      listOfKeys.s = true;
       pressedDebounceZ = true;
       setTimeout(function(){
         pressedDebounceZ = false;
@@ -123,9 +126,8 @@ export function main() {
   
             if (loop_count > 50) {
               loop_count = 0;
-              sPressed--;
 
-              if (sPressed == 0) {
+              if (listOfKeys.s == false) {
                 clearInterval(loop);
                 camera.isMovingZ = false;
               }
@@ -133,8 +135,10 @@ export function main() {
           }, 1)
         }
       }
-    } else if (e.key == "a" && !pressedDebounceX) {
-      aPressed++;
+    }
+    
+    if (e.key == "a" && !pressedDebounceX) {
+      listOfKeys.a = true;
 
       pressedDebounceX = true;
       setTimeout(function(){
@@ -161,9 +165,9 @@ export function main() {
   
             if (loop_count > 45) {
               loop_count = 0;
-              aPressed--;
               desiredResult += 45;
-              if (aPressed == 0) {
+
+              if (listOfKeys.a == false) {
                 clearInterval(loop);
                 camera.isMovingX = false;
               }
@@ -172,7 +176,7 @@ export function main() {
         }
       }
     } else if (e.key == "d" && !pressedDebounceX) {
-      dPressed++;
+      listOfKeys.d = true;
 
       pressedDebounceX = true;
       setTimeout(function(){
@@ -200,10 +204,10 @@ export function main() {
   
             if (loop_count > 45) {
               loop_count = 0;
-              dPressed--;
               camera.rotationInDegrees.y = desiredResult;
               desiredResult -= 45;
-              if (dPressed == 0) {
+
+              if (listOfKeys.d == false) {
                 clearInterval(loop);
                 camera.isMovingX = false;
               }
