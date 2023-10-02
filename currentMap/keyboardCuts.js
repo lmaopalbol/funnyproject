@@ -85,11 +85,17 @@ export function main() {
               Math.cos(lala.y-Math.PI)
             );
 
-            camera.position.add(doodoo.normalize().multiplyScalar(0.1));
+            camera.position.add(doodoo.normalize().multiplyScalar(0.01));
             loop_count++;
             renderer.render(scene, camera);
             updateLabels(door, camera);
+
+            if (listOfKeys.w == false) {
+              clearInterval(loop);
+              camera.isMovingZ = false;
+            }
   
+            /*
             if (loop_count > 50) {
               loop_count = 0;
 
@@ -98,6 +104,7 @@ export function main() {
                 camera.isMovingZ = false;
               }
             }
+            */
           }, 1)
         }
       }
@@ -126,7 +133,13 @@ export function main() {
             loop_count++;
             renderer.render(scene, camera);
             updateLabels(door, camera);
+
+            if (listOfKeys.s == false) {
+              clearInterval(loop);
+              camera.isMovingZ = false;
+            }
   
+            /*
             if (loop_count > 50) {
               loop_count = 0;
 
@@ -135,6 +148,7 @@ export function main() {
                 camera.isMovingZ = false;
               }
             }
+            */
           }, 1)
         }
       }
@@ -151,7 +165,7 @@ export function main() {
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
-          var desiredResult = camera.rotationInDegrees.y + 45;
+          var desiredResult = camera.rotationInDegrees.y + 15;
           console.log(desiredResult);
 
           var loop_count = 0;
@@ -166,9 +180,9 @@ export function main() {
             renderer.render(scene, camera);
             updateLabels(door, camera);
   
-            if (loop_count > 45) {
+            if (loop_count > 15) {
               loop_count = 0;
-              desiredResult += 45;
+              desiredResult += 15;
 
               if (listOfKeys.a == false) {
                 clearInterval(loop);
@@ -189,7 +203,7 @@ export function main() {
       if (!camera.isMovingX) {
         camera.isMovingX = true;
         {
-          var desiredResult = camera.rotationInDegrees.y - 45;
+          var desiredResult = camera.rotationInDegrees.y - 15;
           console.log(desiredResult);
 
           var loop_count = 0;
@@ -205,10 +219,10 @@ export function main() {
             renderer.render(scene, camera);
             updateLabels(door, camera);
   
-            if (loop_count > 45) {
+            if (loop_count > 15) {
               loop_count = 0;
               camera.rotationInDegrees.y = desiredResult;
-              desiredResult -= 45;
+              desiredResult -= 15;
 
               if (listOfKeys.d == false) {
                 clearInterval(loop);
