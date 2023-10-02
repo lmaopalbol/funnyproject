@@ -51,7 +51,7 @@ function updateLabels(door, camera){
 
 export function main() {
   window.addEventListener("keyup", function(e){
-    if (listOfKeys.has(e.key)) {
+    if (listOfKeys.keys().includes(e.key)) {
       listOfKeys[e.key] = false;
     };
   })
