@@ -64,8 +64,6 @@ export function main() {
     ];
     var door = currentMap.getCurrentParts().door;
     var renderer = currentMap.getCurrentParts().renderer;
-    
-    console.log(doodoo);
 
 
     if (e.key == "w" && !pressedDebounceZ) {
